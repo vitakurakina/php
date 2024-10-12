@@ -8,10 +8,10 @@ define('SECOND', 2);
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Константы</title>
+	<title>Constants</title>
 </head>
 <body>
-	<h1>Константы</h1>
+	<h1>Constants</h1>
 	<?php
 
 	if (defined('FIRST')) {
