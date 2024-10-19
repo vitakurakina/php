@@ -8,24 +8,24 @@ switch ($day) {
     case 3:
     case 4:
     case 5:
-        echo 'Это рабочий день';
+        echo 'its a working day';
         break;
     case 6:
     case 7:
-        echo 'Это выходной день';
+        echo 'its a weekend day';
         break;
     default:
-        echo 'Неизвестный день';
+        echo 'unknown day';
         break;
 }
 
 // Результат с использованием конструкции match
-echo '<br/> Результат с использованием конструкции match:<br/>';
+echo '<br/> result using match:<br/>';
 
 $result = match ($day) {
-    1, 2, 3, 4, 5 => 'Это рабочий день',
-    6, 7 => 'Это выходной день',
-    default => 'Неизвестный день',
+    1, 2, 3, 4, 5 => 'working day',
+    6, 7 => 'weekend day',
+    default => 'unknown',
 };
 
 echo $result;

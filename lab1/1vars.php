@@ -13,10 +13,10 @@ $age = 20;
 <body>
   <h1>Vars and output</h1>
   <?php
-  echo "Меня зовут: $name<br>";
-  echo "Мне $age лет<br>"; 
-  echo "Тип переменной `name`: " . gettype($name) . "<br>";
-  echo "Тип переменной `age`: " . gettype($age) . "<br>";
+  echo "My name is: $name<br>";
+  echo "I'm $age years old<br>"; 
+  echo "Var's type `name`: " . gettype($name) . "<br>";
+  echo "Var's type `age`: " . gettype($age) . "<br>";
   unset($name);
   unset($age);
   ?>

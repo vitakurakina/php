@@ -13,13 +13,13 @@ $age = 60;
   <h1>if-elseif-else</h1>
   <?php
   if ($age >= 18 && $age <= 59) {
-      echo 'Вам ещё работать и работать';
+      echo 'You still have to work and work';
   } elseif ($age > 59) {
-      echo 'Вам пора на пенсию';
+      echo 'Its time 4 you to retire';
   } elseif ($age >= 1 && $age <= 17) {
-      echo 'Вам ещё рано работать';
+      echo 'Its too early 4 you to work';
   } else {
-      echo 'Неизвестный возраст';
+      echo 'Unknown age';
   }
   ?> 
 </body>

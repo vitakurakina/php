@@ -15,20 +15,20 @@ define('SECOND', 2);
 	<?php
 
 	if (defined('FIRST')) {
-		echo 'Значение константы FIRST: ' . FIRST . '<br>';
+		echo 'constants value FIRST: ' . FIRST . '<br>';
 	} else {
-		echo 'Константа FIRST не определена.<br>';
+		echo 'Const FIRST undefined.<br>';
 	}
   
 	if (defined('SECOND')) {
-		echo 'Значение константы SECOND: ' . SECOND . '<br>';
+		echo 'Constants value SECOND: ' . SECOND . '<br>';
 	} else {
-		echo 'Константа SECOND не определена.<br>';
+		echo 'Const SECOND undefined.<br>';
 	}
 
 
-	echo 'Текущая версия PHP: ' . phpversion() . '<br>'; // Вывод текущей версии PHP
-	echo 'Директория скрипта: ' . __DIR__ . '<br>'; // Вывод директории скрипта
+	echo 'Current PHPs version: ' . phpversion() . '<br>'; // Вывод текущей версии PHP
+	echo 'scripts directory: ' . __DIR__ . '<br>'; // Вывод директории скрипта
 	?>
 </body>
 </html>
