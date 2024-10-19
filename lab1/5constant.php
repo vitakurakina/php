@@ -27,8 +27,8 @@ define('SECOND', 2);
 	}
 
 
-	echo 'Current PHPs version: ' . phpversion() . '<br>'; // Вывод текущей версии PHP
-	echo 'scripts directory: ' . __DIR__ . '<br>'; // Вывод директории скрипта
+	echo 'Current PHPs version: ' . phpversion() . '<br>';
+	echo 'scripts directory: ' . __DIR__ . '<br>';
 	?>
 </body>
 </html>
