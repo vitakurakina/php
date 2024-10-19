@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Таблица умножения</title>
+  <title>The multiplication table</title>
   <style>
     table {
       border: 2px solid black;
@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <h1>Таблица умножения</h1>
+  <h1>The multiplication table</h1>
   <?php
   $rows = 10;
   $cols = 10;
