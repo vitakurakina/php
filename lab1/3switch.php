@@ -1,6 +1,5 @@
 <?php
-// ЗАДАНИЕ 3
-$day = 4; // Замените 4 на любое произвольное целочисленное значение
+$day = 4;
 
 switch ($day) {
     case 1:
@@ -19,7 +18,6 @@ switch ($day) {
         break;
 }
 
-// Результат с использованием конструкции match
 echo '<br/> result using match:<br/>';
 
 $result = match ($day) {
