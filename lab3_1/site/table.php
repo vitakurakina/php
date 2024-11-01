@@ -45,26 +45,7 @@
     <br>
 
     <?php
-    function getTable(int $cols = 10, int $rows = 10, string $color = "yellow"): int {
-        static $count = 0;
-        $count++;
-    
-        echo "<table>";
-        for ($r = 1; $r <= $rows; $r++) {
-            echo "<tr>";
-            for ($c = 1; $c <= $cols; $c++) {
-                if ($r == 1 || $c == 1) {
-                    echo "<th style='background-color: $color'>" . $r * $c . "</th>";
-                } else {
-                    echo "<td>" . $r * $c . "</td>";
-                }
-            }
-            echo "</tr>";
-        }
-        echo "</table>";
-    
-        return $count;
-    }
+    include 'inc\lib.inc.php';
     $cols = isset($_GET['cols']) ? (int)$_GET['cols'] : 5;
     $rows = isset($_GET['rows']) ? (int)$_GET['rows'] : 5;
     $color = isset($_GET['color']) ? $_GET['color'] : '#ff0000';
