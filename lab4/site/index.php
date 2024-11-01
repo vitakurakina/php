@@ -60,11 +60,30 @@ include 'inc/data.inc.php';
   </section>
 
   <nav>
-    <?php include 'inc/menu.inc.php'; ?>
+  <?php
+switch($id){
+	case 'about': 
+		include 'about.php';
+		break;
+	case 'contact':
+		include 'contact.php';
+		break;
+	case 'table':
+		include 'table.php';
+		break;
+	case 'calc':
+		include 'calc.php';
+		break;
+	default:
+		include 'inc/menu.inc.php'; 
+}
+?>
   </nav>
 
   <footer>
-    <?php include 'inc/bottom.inc.php'; ?>
+    <!-- Нижняя часть страницы -->
+    &copy; Супер Мега Веб-мастер, 2000 &ndash; <?= date('Y') ?>
+    <!-- Нижняя часть страницы -->
   </footer>
 </body>
 </html>
