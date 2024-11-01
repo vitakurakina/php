@@ -1,10 +1,8 @@
 <?php
 
 /**
- * Отрисовывает меню в зависимости от переданных параметров.
- *
- * @param array $menu Массив с элементами меню, где каждый элемент содержит 'link' и 'href'.
- * @param bool $vertical Если true, меню будет вертикальным, иначе горизонтальным.
+ * @param array $menu 
+ * @param bool $vertical
  */
 function getMenu(array $menu, bool $vertical = true) {
     $class = $vertical ? "menu vertical" : "menu horizontal";
@@ -15,8 +13,6 @@ function getMenu(array $menu, bool $vertical = true) {
     }
     echo "</ul>";
 }
-
-// Массив с пунктами меню
 $leftMenu = [
     ['link' => 'Home', 'href' => 'index.php'],
     ['link' => 'Contact', 'href' => 'contact.php'],
