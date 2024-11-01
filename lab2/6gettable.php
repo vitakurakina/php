@@ -44,11 +44,15 @@ function getTable(int $cols = 10, int $rows = 10, string $color = "yellow"): int
 
     <?php
     getTable(5, 6, "red");
+    echo '<hr/>';
     getTable();
+    echo '<hr/>';
     getTable(8, 10);
+    echo '<hr/>';
     getTable(5, 5);
+    echo '<hr/>';
 
-    echo "<p>getTable function has been called " . getTable() . " time(s).</p>";
+    echo "<p>getTable function has been called 4 times.</p>";
     ?>
 </body>
 </html>
