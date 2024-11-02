@@ -33,7 +33,7 @@ function getTable(int $cols = 10, int $rows = 10, string $color = "yellow"): int
 function getMenu($menu) {
     echo "<ul>";
     foreach ($menu as $item) {
-        echo "<li><a href='{$item['href']}>{$item['link']}'</a></li>";
+        echo "<li><a href='{$item['href']}'>{$item['link']}</a></li>";
     }
     echo "</ul>";
 }
