@@ -45,7 +45,8 @@
     <br>
 
     <?php
-    include 'inc\lib.inc.php';
+	include 'inc/lib.inc.php'; // Assuming lib.inc.php is in the 'inc' directory relative to 'table.php'
+
     $cols = isset($_GET['cols']) ? (int)$_GET['cols'] : 5;
     $rows = isset($_GET['rows']) ? (int)$_GET['rows'] : 5;
     $color = isset($_GET['color']) ? $_GET['color'] : '#ff0000';

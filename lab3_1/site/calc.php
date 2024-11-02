@@ -21,7 +21,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $num1 = filter_input(INPUT_POST, 'num1', FILTER_VALIDATE_FLOAT);
-        $operator = filter_input(INPUT_POST, 'operator', FILTER_SANITIZE_STRING);
+        $operator = $_POST['operator'];
         $num2 = filter_input(INPUT_POST, 'num2', FILTER_VALIDATE_FLOAT);
 
         if ($num1 === false || $num2 === false) {

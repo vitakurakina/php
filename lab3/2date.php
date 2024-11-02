@@ -38,10 +38,10 @@
 	
 	setlocale(LC_TIME, 'ru_RU.UTF-8');
 	
-	$current_date = strftime("Сегодня %e %B %Y года, %A %H:%M:%S", $now);
-	echo "<p>$current_date</p>";
+	//$current_date = strftime("Сегодня %e %B %Y года, %A %H:%M:%S", $now);
+	//echo "<p>$current_date</p>";
 
-	/*$formatter = datefmt_create(
+	$formatter = datefmt_create(
         'ru_RU',
         IntlDateFormatter::FULL,
         IntlDateFormatter::FULL,
@@ -49,7 +49,7 @@
         IntlDateFormatter::GREGORIAN,
         'Сегодня d MMMM Y года, EEEE HH:mm:ss'
     );
-    echo "<p>" . datefmt_format($formatter, $now) . "</p>";*/ //у меня intl расширение работать не хочет
+    echo "<p>" . datefmt_format($formatter, $now) . "</p>"; //у меня intl расширение работать не хочет
 	
 	$time_until_birthday = $birthday - $now;
 	

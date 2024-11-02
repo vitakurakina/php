@@ -8,18 +8,27 @@ declare(strict_types=1);
  * @param int $cols 
  * @param int $rows 
  * @param string $color 
- * */
-function getTable($rows = 10, $cols = 10) {
-    echo "<table border='1' cellpadding='5'>";
-    for ($i = 1; $i <= $rows; $i++) {
+ */
+function getTable(int $cols = 10, int $rows = 10, string $color = "yellow"): int {
+    static $count = 0;
+    $count++;
+  
+    echo "<table>";
+    for ($r = 1; $r <= $rows; $r++) {
         echo "<tr>";
-        for ($j = 1; $j <= $cols; $j++) {
-            echo "<td>" . $i * $j . "</td>";
+        for ($c = 1; $c <= $cols; $c++) {
+            if ($r == 1 || $c == 1) {
+                echo "<th style='background-color: $color'>" . $r * $c . "</th>";
+            } else {
+                echo "<td>" . $r * $c . "</td>";
+            }
         }
         echo "</tr>";
     }
     echo "</table>";
-}
+  
+    return $count;
+  }
 
 function getMenu($menu) {
     echo "<ul>";
@@ -28,4 +37,3 @@ function getMenu($menu) {
     }
     echo "</ul>";
 }
-?>
