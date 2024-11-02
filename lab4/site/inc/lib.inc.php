@@ -11,8 +11,6 @@ declare(strict_types=1);
 function drawTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): void
 {
 
-    //echo '<table>';
-
     echo '<tr>';
     echo '<th style="background-color:' . $color . ';">*</th>';
     for ($i = 1; $i <= $cols; $i++)
@@ -27,8 +25,6 @@ function drawTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): vo
             echo '<td>', $i * $j, '</td>';
         echo '</tr>';
     }
-
-    //echo '</table>';
 
 }
 
@@ -45,7 +41,7 @@ function getMenu(array $menu, bool $vertical = true): void
 
     echo "<ul class='$menuClasses'>";
     foreach ($menu as $item)
-        echo "<li><a href={$item['href']}>{$item['link']}</a></li>";
+        echo "<li><a 'href={$item['href']}>{$item['link']}'</a></li>";
 
     echo '</ul>';
 

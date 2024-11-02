@@ -33,13 +33,13 @@
     echo "<tr>";
     for ($j = 0; $j <= $cols; $j++) {
       if ($i == 0 && $j == 0) {
-        echo "<th style='background-color: yellow;'></th>";
+        echo "<th></th>";
       } elseif ($i == 0) {
-        echo "<th style='text-align: center; background-color: yellow;'>$j</th>";
+        echo "<th>$j</th>";
       } elseif ($j == 0) {
-        echo "<th style='text-align: center; background-color: yellow;'>$i</th>";
+        echo "<th>$i</th>";
       } else {
-        echo "<td style='text-align: center;'>" . ($i * $j) . "</td>";
+        echo "<td>" . ($i * $j) . "</td>";
       }
     }
     echo "</tr>";
