@@ -13,4 +13,3 @@ $leftMenu = [
     ['href' => 'index.php?id=table', 'link' => 'Таблица умножения'],
     ['href' => 'index.php?id=calc', 'link' => 'Калькулятор'],
 ];
-?>
