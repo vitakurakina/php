@@ -50,17 +50,12 @@ include 'inc/data.inc.php';
 </head>
 <body>
   <header>
-
     <?php include 'inc/top.inc.php'; ?>
   </header>
 
   <section>
   <h1><?=$header?></h1>
-    <?php include 'inc/index.inc.php'; ?>
-  </section>
-
-  <nav>
-  <?php
+	<?php
 switch($id){
 	case 'about': 
 		include 'about.php';
@@ -75,9 +70,13 @@ switch($id){
 		include 'calc.php';
 		break;
 	default:
-		include 'inc/menu.inc.php'; 
+		include 'inc/index.inc.php'; 
 }
 ?>
+  </section>
+
+  <nav>
+<?php getMenu($leftMenu); ?>
   </nav>
 
   <footer>

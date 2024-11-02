@@ -1,26 +1,6 @@
 <?php
 declare(strict_types=1);
 
-function drawTable(int $cols = 10, int $rows = 10, string $color = "yellow"): int {
-  static $count = 0;
-  $count++;
-
-  echo "<table>";
-  for ($r = 1; $r <= $rows; $r++) {
-      echo "<tr>";
-      for ($c = 1; $c <= $cols; $c++) {
-          if ($r == 1 || $c == 1) {
-              echo "<th style='background-color: $color'>" . $r * $c . "</th>";
-          } else {
-              echo "<td>" . $r * $c . "</td>";
-          }
-      }
-      echo "</tr>";
-  }
-  echo "</table>";
-
-  return $count;
-}
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$cols = abs((int) $_POST['cols']);
