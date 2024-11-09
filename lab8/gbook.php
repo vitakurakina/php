@@ -11,9 +11,9 @@
   чтобы избавиться от информации, переданной через форму
 */
 $hostname = 'localhost';
-$username = 'f1035909_login_db';
-$password = 'vAB7p8YY';
-$database = 'f1035909_login_db';
+$username = 'f1038558_login_db';
+$password = 'gGXBHheU';
+$database = 'f1038558_login_db';
 $tablename = 'msgs';
 $mysqli = new mysqli($hostname, $username, $password, $database);
 if($mysqli->connect_error) { die('Connect error ' . $mysqli->connect_error); }
