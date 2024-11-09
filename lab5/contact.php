@@ -1,49 +1,26 @@
 <?php
 declare(strict_types=1);
-
-$message = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-  $subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-  $body = filter_input(INPUT_POST, 'body', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-
-  $to = "talina.krina@gmail.com";
-  $from = "talina.krina@gmail.com";
-  $headers = "From: $from\r\n" .
-    "Reply-To: $from\r\n" .
-    "Content-Type: text/plain; charset=utf-8";
-
-
-  if (mail($to, $subject, $body, $headers))
-    $message = "<p>Сообщение успешно отправлено!</p>";
-  else
-    $message = "<p>Произошла ошибка при отправке сообщения.</p>";
+$message = false;
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+  $body = trim(htmlspecialchars($_POST['body']));
+  $subject = trim(htmlspecialchars($_POST['subject']));
+  $headers = array(
+    'From' => 'vitaliia.kurakina@yandex.ru',
+    'Reply-To' => 'vitaliia.kurakina@yandex.ru',
+    'X-Mailer' => 'PHP/' . phpversion()
+  );
+  if(mail('talina.krina@gmail.com', $subject, $body)){
+      $message = true;
+  }
+  else { $message = false; }
 
 }
 ?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>Контакты</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <section>
-    <!-- Заголовок -->
-    <h1>Обратная связь</h1>
-    <!-- Заголовок -->
     <!-- Область основного контента -->
     <h3>Адрес</h3>
     <address>123456 Москва, Малый Американский переулок 21</address>
     <h3>Задайте вопрос</h3>
-    <form method='post'>
+    <form action='' method='post'>
       <label>Тема письма: </label>
       <br>
       <input name='subject' type='text' size="50">
@@ -55,16 +32,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <br>
       <input type='submit' value='Отправить'>
     </form>
-
-    <? echo $message ?>
     <!-- Область основного контента -->
-  </section>
-
-  <footer>
-    <!-- Нижняя часть страницы -->
-    &copy; Супер Мега Веб-мастер, 2000 &ndash; 20xx
-    <!-- Нижняя часть страницы -->
-  </footer>
-</body>
-
-</html>
+     <?=$message ? 'Сообщение отправлено успешно' : 'Сообщение не отправлено';?>
