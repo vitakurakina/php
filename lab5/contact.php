@@ -1,32 +1,27 @@
 <?php
-declare(strict_types=1);
 
-$message = null;
+declare(strict_types=1);
+$message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Validate and sanitize input using FILTER_SANITIZE_FULL_SPECIAL_CHARS
-    $subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $body = filter_input(INPUT_POST, 'body', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    // Фильтрация данных
+    $subject = htmlspecialchars(trim($_POST['subject']), ENT_QUOTES, 'UTF-8');
+    $body = htmlspecialchars(trim($_POST['body']), ENT_QUOTES, 'UTF-8');
 
-    // Basic Input Validation
-    if (empty($subject) || empty($body)) {
-        $message = 'Please fill in all fields.';
-    } else {
-        // Headers for email
-        $headers = [
-            'From' => 'talina.krina@gmail.com',
-            'Reply-To' => 'talina.krina@gmail.com',
-            'X-Mailer' => 'PHP/' . phpversion(),
-        ];
+    // Проверка, что данные не пусты
+    if ($subject && $body) {
+        $to = 'talina.krina@gmail.com'; // Замените на ваш рабочий e-mail
+        $headers = "From: talina.krina@gmail.com" . "\r\n" .
+                   "Reply-To: talina.krina@gmail.com" . "\r\n" .
+                   "X-Mailer: PHP/" . phpversion();
 
-        // Attempt to send email
-        if (mail('talina.krina@gmail.com', $subject, $body, implode("\r\n", $headers))) {
-            $message = 'Message sent successfully!';
-        } else {
-            $message = 'Error sending message. Please try again later.';
-        }
-    }
-}
+        // Отправка письма
+if (mail($to, $subject, $body, $headers)) {
+    $message = "<p>Сообщение успешно отправлено!</p>";
+} else {
+    $message = "<p>Произошла ошибка при отправке сообщения. Проверьте настройки сервера и лог ошибок.</p>";
+    error_log("Ошибка при отправке сообщения");
+}}}
 ?>
 
 <!DOCTYPE html>
