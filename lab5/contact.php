@@ -1,27 +1,28 @@
 <?php
-
-declare(strict_types=1);
-$message = "";
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Фильтрация данных
+    // Фильтрация введенных данных
+    //$subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING);
+    //$body = filter_input(INPUT_POST, 'body', FILTER_SANITIZE_STRING);
+
     $subject = htmlspecialchars(trim($_POST['subject']), ENT_QUOTES, 'UTF-8');
     $body = htmlspecialchars(trim($_POST['body']), ENT_QUOTES, 'UTF-8');
 
-    // Проверка, что данные не пусты
-    if ($subject && $body) {
-        $to = 'talina.krina@gmail.com'; // Замените на ваш рабочий e-mail
-        $headers = "From: talina.krina@gmail.com" . "\r\n" .
-                   "Reply-To: talina.krina@gmail.com" . "\r\n" .
-                   "X-Mailer: PHP/" . phpversion();
 
+    // Проверка, что поля не пусты
+    if (!empty($subject) && !empty($body)) {
         // Отправка письма
-if (mail($to, $subject, $body, $headers)) {
-    $message = "<p>Сообщение успешно отправлено!</p>";
-} else {
-    $message = "<p>Произошла ошибка при отправке сообщения. Проверьте настройки сервера и лог ошибок.</p>";
-    error_log("Ошибка при отправке сообщения");
-}}}
+        $to = 'vitaliia.kurakina@ya.ru';
+        $headers = "From: talina.krina@gmail.com";
+
+        if (mail($to, $subject, $body, $headers)) {
+            echo '<p>Сообщение отправлено успешно!</p>';
+        } else {
+            echo '<p>Ошибка при отправке сообщения.</p>';
+        }
+    } else {
+        echo '<p>Пожалуйста, заполните все поля.</p>';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +44,7 @@ if (mail($to, $subject, $body, $headers)) {
     <h3>Адрес</h3>
     <address>123456 Москва, Малый Американский переулок 21</address>
     <h3>Задайте вопрос</h3>
-    <form method='post'>
+    <form action='' method='post'>
       <label>Тема письма: </label>
       <br>
       <input name='subject' type='text' size="50">
@@ -55,16 +56,9 @@ if (mail($to, $subject, $body, $headers)) {
       <br>
       <input type='submit' value='Отправить'>
     </form>
-
-    <? echo $message ?>
     <!-- Область основного контента -->
   </section>
 
-  <footer>
-    <!-- Нижняя часть страницы -->
-    &copy; Супер Мега Веб-мастер, 2000 &ndash; 20xx
-    <!-- Нижняя часть страницы -->
-  </footer>
 </body>
 
 </html>
