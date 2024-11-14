@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $msg = trim(htmlspecialchars($mysqli->real_escape_string($_POST['msg'])));
 
     // Проверка на пустые поля
-    if (empty($name)) {
+    /*if (empty($name)) {
         $errors['name'] = "Please fill out this field";
     }
     if (empty($email)) {
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     if (empty($msg)) {
         $errors['msg'] = "Please fill out this field";
-    }
+    }*/
 
     if (empty($errors)) {
         $queryINSERT = "INSERT INTO " . DB_TABLE . "(name, email, msg) VALUES('$name', '$email', '$msg')";
@@ -69,32 +69,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
-  Ваше имя:<br>
-  <input type="text" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>">
-  <?php if (isset($errors['name'])) : ?>
-    <span class="error"><?php echo $errors['name']; ?></span>
-  <?php endif; ?>
-  <br>
-
-  Ваш E-mail:<br>
-  <input type="email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
-  <?php if (isset($errors['email'])) : ?>
-    <span class="error"><?php echo $errors['email']; ?></span>
-  <?php endif; ?>
-  <br>
-
-  Сообщение:<br>
-  <textarea name="msg" cols="50" rows="5"><?php echo isset($_POST['msg']) ? htmlspecialchars($_POST['msg']) : ''; ?></textarea>
-  <?php if (isset($errors['msg'])) : ?>
-    <span class="error"><?php echo $errors['msg']; ?></span>
-  <?php endif; ?>
-  <br>
-  <br>
-
-  <input type="submit" value="Добавить!">
+Ваше имя:<br>
+<input type="text" name="name" required><br>
+Ваш E-mail:<br>
+<input type="email" name="email" required><br>
+Сообщение:<br>
+<textarea name="msg" cols="50" rows="5" required></textarea><br>
+<br>
+<input type="submit" value="Добавить!">
 
 </form>
-
 <?php
 
 $querySELECT = "SELECT * FROM " . DB_TABLE . " ORDER BY id DESC";
